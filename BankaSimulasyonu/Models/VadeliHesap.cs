@@ -58,6 +58,7 @@ namespace BankaSimulasyonu.Models
         protected override void ParaCekIslem(double miktar)
         {
             // Vadeli hesaptan çekim yapılırsa faiz sıfırlanır
+            FaizOranı = 0;
             IslemGecmisi.Add($"{DateTime.Now:dd.MM.yyyy HH:mm} | Uyarı: Vade bozuldu, faiz sıfırlandı.");
         }
 

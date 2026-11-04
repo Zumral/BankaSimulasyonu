@@ -37,7 +37,7 @@ namespace BankaSimulasyonu.Models
         public double FaizHesapla()
         {
             // Kullanılan kredi üzerinden faiz hesapla
-            double kullanilanKredi = KrediLimiti - Bakiye;
+            double kullanilanKredi = -Bakiye;
             if (kullanilanKredi <= 0) return 0;
             return kullanilanKredi * (FaizOranı / 100);
         }
@@ -82,7 +82,7 @@ namespace BankaSimulasyonu.Models
 
         public override string RaporOlustur()
         {
-            double kullanilanKredi = KrediLimiti + Bakiye;
+            double kullanilanKredi = Math.Max(0, -Bakiye);
             return base.RaporOlustur() +
                    $"\nKredi Limiti     : {KrediLimiti:C2}" +
                    $"\nKullanılan Kredi : {kullanilanKredi:C2}" +
